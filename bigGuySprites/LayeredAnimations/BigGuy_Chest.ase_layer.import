@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://cvpbmow4hkx43"
+path="res://.godot/imported/BigGuy_Chest.ase_layer-aaeb4b575a0ff951335520b400902beb.res"
+
+[deps]
+
+files=["res://.godot/imported/BigGuy_Chest.ase_layer-aaeb4b575a0ff951335520b400902beb.Chest.texture.res"]
+
+source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Chest.ase_layer"
+dest_files=["res://.godot/imported/BigGuy_Chest.ase_layer-aaeb4b575a0ff951335520b400902beb.res", "res://.godot/imported/BigGuy_Chest.ase_layer-aaeb4b575a0ff951335520b400902beb.Chest.texture.res"]
+
+[params]
+

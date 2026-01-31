@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://h2pb0bcnsgvg"
+path="res://.godot/imported/BigGuy_Head.ase_layer-172613275fdbf65a073932a6e1b7c7d6.res"
+
+[deps]
+
+files=["res://.godot/imported/BigGuy_Head.ase_layer-172613275fdbf65a073932a6e1b7c7d6.Head.texture.res"]
+
+source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Head.ase_layer"
+dest_files=["res://.godot/imported/BigGuy_Head.ase_layer-172613275fdbf65a073932a6e1b7c7d6.res", "res://.godot/imported/BigGuy_Head.ase_layer-172613275fdbf65a073932a6e1b7c7d6.Head.texture.res"]
+
+[params]
+

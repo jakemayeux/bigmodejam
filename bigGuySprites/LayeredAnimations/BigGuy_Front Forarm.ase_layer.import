@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://bxw622ilbj7ir"
+path="res://.godot/imported/BigGuy_Front Forarm.ase_layer-a931ff44adb3c6c2e0c02673de22e670.res"
+
+[deps]
+
+files=["res://.godot/imported/BigGuy_Front Forarm.ase_layer-a931ff44adb3c6c2e0c02673de22e670.Front Forarm.texture.res"]
+
+source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Front Forarm.ase_layer"
+dest_files=["res://.godot/imported/BigGuy_Front Forarm.ase_layer-a931ff44adb3c6c2e0c02673de22e670.res", "res://.godot/imported/BigGuy_Front Forarm.ase_layer-a931ff44adb3c6c2e0c02673de22e670.Front Forarm.texture.res"]
+
+[params]
+
