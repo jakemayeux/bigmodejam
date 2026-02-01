@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://c57u5rujrdp08"
+path="res://.godot/imported/BigGuy_BackGround.ase_layer-27e6e601f0368b20b12d4f1abc1756c6.res"
+
+[deps]
+
+files=["res://.godot/imported/BigGuy_BackGround.ase_layer-27e6e601f0368b20b12d4f1abc1756c6.BackGround.texture.res"]
+
+source_file="res://bigGuySprites/LayeredAnimations/BigGuy_BackGround.ase_layer"
+dest_files=["res://.godot/imported/BigGuy_BackGround.ase_layer-27e6e601f0368b20b12d4f1abc1756c6.res", "res://.godot/imported/BigGuy_BackGround.ase_layer-27e6e601f0368b20b12d4f1abc1756c6.BackGround.texture.res"]
+
+[params]
+

@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://jly8xs6y40u5"
+path="res://.godot/imported/BigGuy_Front Hand.ase_layer-e8a520cca43e21bc808fcc71b1dbc37c.res"
+
+[deps]
+
+files=["res://.godot/imported/BigGuy_Front Hand.ase_layer-e8a520cca43e21bc808fcc71b1dbc37c.Front Hand.texture.res"]
+
+source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Front Hand.ase_layer"
+dest_files=["res://.godot/imported/BigGuy_Front Hand.ase_layer-e8a520cca43e21bc808fcc71b1dbc37c.res", "res://.godot/imported/BigGuy_Front Hand.ase_layer-e8a520cca43e21bc808fcc71b1dbc37c.Front Hand.texture.res"]
+
+[params]
+

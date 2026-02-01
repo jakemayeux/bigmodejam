@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://2ybo0ipre11r"
+path="res://.godot/imported/BigGuy_Front LowerLeg.ase_layer-12776b45c93337cf4702e61142342f52.res"
+
+[deps]
+
+files=["res://.godot/imported/BigGuy_Front LowerLeg.ase_layer-12776b45c93337cf4702e61142342f52.Front LowerLeg.texture.res"]
+
+source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Front LowerLeg.ase_layer"
+dest_files=["res://.godot/imported/BigGuy_Front LowerLeg.ase_layer-12776b45c93337cf4702e61142342f52.res", "res://.godot/imported/BigGuy_Front LowerLeg.ase_layer-12776b45c93337cf4702e61142342f52.Front LowerLeg.texture.res"]
+
+[params]
+

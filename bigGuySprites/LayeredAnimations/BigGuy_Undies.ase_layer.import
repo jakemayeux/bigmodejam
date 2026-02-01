@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://dmqgrnx0hhrgo"
+path="res://.godot/imported/BigGuy_Undies.ase_layer-88b660255af9f297f1c1135eb799ca21.res"
+
+[deps]
+
+files=["res://.godot/imported/BigGuy_Undies.ase_layer-88b660255af9f297f1c1135eb799ca21.Undies.texture.res"]
+
+source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Undies.ase_layer"
+dest_files=["res://.godot/imported/BigGuy_Undies.ase_layer-88b660255af9f297f1c1135eb799ca21.res", "res://.godot/imported/BigGuy_Undies.ase_layer-88b660255af9f297f1c1135eb799ca21.Undies.texture.res"]
+
+[params]
+

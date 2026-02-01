@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://d36ay0qdep8d6"
+path="res://.godot/imported/BigGuy_Front Shoulder.ase_layer-18d53faf079c45b98b22ecee09feee13.res"
+
+[deps]
+
+files=["res://.godot/imported/BigGuy_Front Shoulder.ase_layer-18d53faf079c45b98b22ecee09feee13.Front Shoulder.texture.res"]
+
+source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Front Shoulder.ase_layer"
+dest_files=["res://.godot/imported/BigGuy_Front Shoulder.ase_layer-18d53faf079c45b98b22ecee09feee13.res", "res://.godot/imported/BigGuy_Front Shoulder.ase_layer-18d53faf079c45b98b22ecee09feee13.Front Shoulder.texture.res"]
+
+[params]
+
