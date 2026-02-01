@@ -292,8 +292,8 @@ _data = {
 &"Proto-Throw": SubResource("Animation_bwjto")
 }
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5qho4"]
-_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAMAAAABSAgAAUklGRkoCAABXRUJQVlA4TD0CAAAvv8AvEC9AFmAyf7tl0R1AGgrZRoDOn24a5/ARCZDwivF2s4+c/0D4f1GpEHogSdveuG1+gOaeKJ/s0egCpOjuM9B7ebr/YawBsdF5iuj/BOD3UTI6OPLVJPdWRve+E3ce0c009wJPaa7M7HCNAOIDkUECEgEl3OB6ATDB3bT00jscTAtxIQGExY67Pt5MK9INAcA0syxY/3K5o3SzWQBQiRGYll7DOtxLbMhpOmxIBEhEiq9XoMSltOVuQ8r0et0iEfX8dNz3SyxtxZ4eo8lRni4bUM8pt3bu+3N8v2Ax1fAYUl+vx76ptZb350O7fukrAHqIlBu9xOuWVFur75fr/tr7bg1CW9PjtLsL1PyyO2NzbS23mR1W1zUvFzx2aa2eD+3QsTpJDUsTHr20ejm0iK1CS36/9O5ckk6+AYK/7pN736WTJ2TjLbn39Z3c+xV0coW2xJuvbChmwaoY0Aclsspkleq2j7ZL1SrTunQHoVgVmId1/+fN7rnPYBMFW6laMdiEGQHWwarAeAwcTICRrMbPasNpMEJNg1GubDNKha1mGWw0VZhqFgk2yDLYjFJhnIlNUEQqm/CnAcbls9qMlGGrucK4wFoDbIuWwQZpANhEwUbMRgqFqaLAewXYNcZ/mrJ+hLoAQMEWDC8VCobpsxdAYdi2AYU9YKQBUItUQ3UBmiuMRSpcHEUqmxSRwQXNIgNMR5HgApArq0kWgZMjwUQzMnmggAaALQLG5gGgYJg/qwt4hjHDUbX52ykA")
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_dyjpq"]
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAMAAAADiAQAAUklGRtoBAABXRUJQVlA4TM4BAAAvv8AvECdAmG00f7vtfS6noZBtBOj82V6NozgCSZv1r7QSK3Q+/wHw/zhVLpBY205cVxKmAImVAiQ5BfgFFzD2X9QbQAHy5yGi/wzcNlKU7jFl5+gP8Pso6GT9Fp/2yyTCD1GmYXfcnllGvKQ8McEVO58AHRAA4Z3wZHGdT4cPF3plyXmQXgAUq0/FcjYedqgUmeqPzwtcsVjO9gVydAIlxuKut1Axa0U0SLSttX7inQgUbxeAxIJOgC4JlPB21eAIerztcz6jWIEZ+2C881u1xnpQMjvyfMSPghJp6APr7dpzFTNL87Ha9Z7P3v8ESoZLvKoyaqYf5zVfOZc/bcFK5LhNbZqmZToAHJNkT0w1nfK5+kbM9L6w5trzVtpnA+je9Fwt1h8ShOGz5Dw4xHn4HRj+ug/CD1i2b+x2/A5t//WZbeSvRoSvlyB+IS/S/MNH6CWh21Mdo06QtukvdVyQT4jC8PnvO6G1j7h1gltUEBr7kLu/Sl6SegdWL4m9/qRuTQ5+/9b9RXd9WBvXX9z+mKDtAkjr51BAgr8+g0fgf8URLxZABoGCV0eDDkJy6zMPgjCr2ycMMmUOfsZeSMzDHIZeIOEoLbhtxODv7QA=")
 size_override = Vector2(192, 192)
 
 [sub_resource type="Animation" id="Animation_5qho4"]
@@ -360,26 +360,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteVFX:position")
+tracks/0/path = NodePath("SpriteVFX:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0.05290774),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(19, -8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteVFX:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteVFX:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.05290774),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19, -8)]
 }
 
 [sub_resource type="Animation" id="Animation_xipxe"]
@@ -388,26 +388,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteVFX:position")
+tracks/0/path = NodePath("SpriteVFX:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(19, -8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteVFX:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteVFX:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19, -8)]
 }
 
 [sub_resource type="Animation" id="Animation_ymal8"]
@@ -416,26 +416,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteVFX:position")
+tracks/0/path = NodePath("SpriteVFX:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(19, -8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteVFX:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [11, 12, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteVFX:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19, -8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5qho4"]
@@ -449,9 +449,9 @@ _data = {
 }
 
 [sub_resource type="Curve" id="Curve_32gdn"]
-_limits = [0.0, 600.0, 0.0, 3.5]
-_data = [Vector2(0.11682242, 0.033707857), 0.0, 0.0, 0, 0, Vector2(1.0467291, 276.40448), 74.94526, 74.94526, 0, 0, Vector2(1.8154209, 303.37076), 50.62094, 50.62094, 0, 0, Vector2(2.5677574, 512.35956), 0.0, 0.0, 0, 0, Vector2(3.4836452, 586.51685), 0.0, 0.0, 0, 0]
-point_count = 5
+_limits = [0.0, 200.0, 0.0, 2.5]
+_data = [Vector2(0.11682242, 0.033707857), 0.0, 0.0, 0, 0, Vector2(0.6542056, 98.8764), 0.0, 0.0, 0, 0, Vector2(1.5186915, 146.06741), 50.62094, 50.62094, 0, 0, Vector2(2.5, 200), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=670318998]
 script = ExtResource("1_pqb02")
@@ -500,10 +500,10 @@ libraries/ = SubResource("AnimationLibrary_606se")
 [node name="SpriteVFX" type="Sprite2D" parent="VisualEffects" unique_id=479276910]
 texture_filter = 1
 position = Vector2(0, 26)
-texture = SubResource("PortableCompressedTexture2D_5qho4")
+texture = SubResource("PortableCompressedTexture2D_dyjpq")
 hframes = 4
 vframes = 4
-frame = 1
+frame = 5
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "pending_changes": {}
@@ -526,7 +526,7 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://ParticalEffects/VisualVFX.aseprite",
 "source_uid": 4938048260732315894
 }
-metadata/_aseprite_wizard_source_file_hash_ = "d31ac45bf05d64800d488fa0f1ddb6dd"
+metadata/_aseprite_wizard_source_file_hash_ = "d44a8bb1054fa89f97e82ba8435c2460"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VisualEffects" unique_id=933023684]
 libraries/ = SubResource("AnimationLibrary_5qho4")

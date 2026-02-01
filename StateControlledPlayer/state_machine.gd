@@ -24,7 +24,7 @@ func _ready() -> void:
 			
 			
 func _process(delta: float) -> void:
-	for state in states: #purely for animation interupts
+	for state in states: #purely for animation interupts, not in use rn
 		if(states[state].can_enter_from(current_state)):
 			change_state(state)
 			break

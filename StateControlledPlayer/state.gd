@@ -13,8 +13,15 @@ enum State_ID {
 	SLIDING =	0b0000010000000,
 	QUADSTOMP =	0b0000100000000,
 	SQUAT	 =	0b0001000000000,
+	CLIMBING =	0b0010000000000,
+	CHARGEWINDUP =	\
+				0b0100000000000,
+	CHARGEWINDHOLD = \
+				0b1000000000000,
 	ALL = 		0b1111111111111
 }
+
+#currently only being used to check if it can interrupt to itself
 const interupt_table = {
 	State_ID.IDLE : State_ID.ALL & (~State_ID.IDLE),
 	State_ID.RUNNING : State_ID.ALL & (~State_ID.RUNNING),
@@ -25,8 +32,12 @@ const interupt_table = {
 	State_ID.ROLLING : State_ID.ALL & (~State_ID.ROLLING),
 	State_ID.SLIDING : State_ID.ALL & (~State_ID.SLIDING),
 	State_ID.QUADSTOMP : State_ID.NONE | (State_ID.LEAPING),
-	State_ID.SQUAT : State_ID.RISING
+	State_ID.SQUAT : State_ID.RISING,
+	State_ID.CLIMBING : State_ID.NONE,
+	State_ID.CHARGEWINDUP : State_ID.NONE,
+	State_ID.CHARGEWINDHOLD : State_ID.NONE,
 }
+#not currently in use
 enum State_Trans{
 	IDLE_TRANS = 		State_ID.IDLE | State_ID.RUNNING | State_ID.FALLING | State_ID.DIVING | State_ID.RISING | State_ID.LEAPING | State_ID.QUADSTOMP,
 	RUNNING_TRANS = 	State_ID.IDLE | State_ID.RUNNING | State_ID.FALLING | State_ID.DIVING | State_ID.LEAPING | State_ID.SLIDING | State_ID.QUADSTOMP,
@@ -37,7 +48,10 @@ enum State_Trans{
 	ROLLING_TRANS =  	State_ID.IDLE | State_ID.RUNNING | State_ID.FALLING | State_ID.DIVING,
 	SLIDING_TRANS =		State_ID.IDLE | State_ID.RUNNING | State_ID.FALLING | State_ID.DIVING | State_ID.RISING | State_ID.LEAPING | State_ID.SLIDING | State_ID.QUADSTOMP,
 	QUADSTOMP_TRANS = 	State_ID.RUNNING | State_ID.DIVING  | State_ID.LEAPING | State_ID.RISING,
-	SQUAT_TRANS = 		State_ID.RISING
+	SQUAT_TRANS = 		State_ID.RISING,
+	CLIMBING_TRANS = 0,
+	CHARGEWINDUP_TRANS = 0,
+	CHARGEWINDHOLD_TRANS = 0
 }
 const transition_table = {
 		State_ID.IDLE : State_Trans.IDLE_TRANS,
@@ -49,7 +63,10 @@ const transition_table = {
 		State_ID.ROLLING : State_Trans.ROLLING_TRANS,
 		State_ID.SLIDING : State_Trans.SLIDING_TRANS,
 		State_ID.QUADSTOMP : State_Trans.QUADSTOMP_TRANS,
-		State_ID.SQUAT :   State_Trans.SQUAT_TRANS
+		State_ID.SQUAT :   State_Trans.SQUAT_TRANS,
+		State_ID.CLIMBING :   State_Trans.CLIMBING_TRANS,
+		State_ID.CHARGEWINDUP :   State_Trans.CHARGEWINDUP_TRANS,
+		State_ID.CHARGEWINDHOLD :   State_Trans.CHARGEWINDHOLD_TRANS
 }
 
 signal state_finished(next_state : State_ID)
@@ -74,8 +91,7 @@ func can_other_transition_to(other_state : State_ID) -> bool:
 	return transition_table.get(state_id , 0) & other_state
 	
 func can_enter_from(other_state : State_ID) -> bool:
-	return (can_interupt_other(other_state) or !animation_player.is_playing())\
-	 and can_other_transition_to(other_state)
+	return false
 
 func enter(previous_state: State_ID = 0) -> void:
 	pass

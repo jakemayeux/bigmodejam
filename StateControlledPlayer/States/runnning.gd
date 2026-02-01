@@ -16,6 +16,10 @@ func physics_update(delta: float) -> void:
 	if input_vector.x != 0:
 		physics_body.velocity.x += input_vector.x * PlayerConstants.GROUND_ACCEL * delta
 	
+	if physics_body.check_movement_action_buffer():
+		change_state(State_ID.CHARGEWINDUP)
+		return
+	
 	if Input.is_action_just_pressed("s"):
 		change_state(State_ID.QUADSTOMP)
 		return

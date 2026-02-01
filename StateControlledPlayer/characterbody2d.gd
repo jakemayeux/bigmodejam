@@ -11,9 +11,12 @@ extends CharacterBody2D
 
 
 var jump_buffer := -1.0
-
 var jump_tap = -1.0
 var is_jump_tap:bool = false
+
+var movement_action_buffer := -1.0
+var movement_action_tap := -1.0
+var is_movement_action_tap : bool = false
 
 var stored_stomp_velocity := 0.0
 var stored_crouch_velocity := 0.0
@@ -23,15 +26,14 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_update_jump_buffer(delta)
+	_update_movement_action_buffer(delta)
 	
 	_apply_gravity_and_drag(delta)
 	
 	move_and_slide()
 
+#----------------Jump_Buffer-----------------------
 func _update_jump_buffer(delta: float) -> void:
-	print("jump_tap: ", jump_tap)
-	print("is_jump_tap: ", is_jump_tap)
-	print("jump_buffer: ", jump_buffer)
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer = PlayerConstants.JUMP_BUFFER_TIME
 		jump_tap = PlayerConstants.JUMP_TAP_TIME
@@ -42,12 +44,34 @@ func _update_jump_buffer(delta: float) -> void:
 			jump_tap -= delta
 	if Input.is_action_just_released("jump") and (jump_tap >= 0):
 		is_jump_tap = true
-		
 func check_jump_tap()-> bool:
 	var ret_bool = is_jump_tap
 	is_jump_tap = false 
 	return ret_bool and (jump_tap > 0)
+func check_jump_hold()->bool:
+	return (jump_tap <= 0) and Input.is_action_pressed("jump")
 	
+#----------------Movement_Action(shift)-----------------------
+func _update_movement_action_buffer(delta:float)->void:
+	if Input.is_action_just_pressed("MovmentAction"):
+		movement_action_buffer = PlayerConstants.JUMP_BUFFER_TIME
+		movement_action_tap = PlayerConstants.JUMP_TAP_TIME
+	else:
+		if movement_action_buffer > 0:
+			movement_action_buffer -= delta
+		if movement_action_tap > 0:	
+			movement_action_tap -= delta
+	if Input.is_action_just_released("MovmentAction") and (movement_action_tap >= 0):
+		is_movement_action_tap = true
+func check_movement_action_buffer() -> bool:
+	return movement_action_buffer > 0
+func check_movement_action_tap()-> bool:
+	var ret_bool = is_movement_action_tap
+	is_movement_action_tap = false 
+	return ret_bool and (movement_action_tap > 0)
+func check_movement_action_hold()->bool:
+	return (movement_action_tap <= 0) and Input.is_action_pressed("MovmentAction")
+
 
 func _apply_gravity_and_drag(delta: float) -> void:
 	if not is_on_floor():
