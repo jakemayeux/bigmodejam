@@ -9,10 +9,11 @@ extends CharacterBody2D
 @onready var vfx_player: AnimationPlayer = vfx_parent.get_node("AnimationPlayer")
 
 
-var jump_buffer_time := 0.075
-var jump_buffer := 0.0
-var jump_tap_time := 0.05
-var jump_tap = 0.0
+
+var jump_buffer := -1.0
+
+var jump_tap = -1.0
+var is_jump_tap:bool = false
 
 var stored_stomp_velocity := 0.0
 var stored_crouch_velocity := 0.0
@@ -28,14 +29,24 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _update_jump_buffer(delta: float) -> void:
+	print("jump_tap: ", jump_tap)
+	print("is_jump_tap: ", is_jump_tap)
+	print("jump_buffer: ", jump_buffer)
 	if Input.is_action_just_pressed("jump"):
-		jump_buffer = jump_buffer_time
-		jump_tap = jump_buffer_time
-	elif jump_buffer > 0:
-		jump_buffer -= delta
-		jump_tap -= delta
+		jump_buffer = PlayerConstants.JUMP_BUFFER_TIME
+		jump_tap = PlayerConstants.JUMP_TAP_TIME
+	else:
+		if jump_buffer > 0:
+			jump_buffer -= delta
+		if jump_tap > 0:	
+			jump_tap -= delta
+	if Input.is_action_just_released("jump") and (jump_tap >= 0):
+		is_jump_tap = true
 		
-	
+func check_jump_tap()-> bool:
+	var ret_bool = is_jump_tap
+	is_jump_tap = false 
+	return ret_bool and (jump_tap > 0)
 	
 
 func _apply_gravity_and_drag(delta: float) -> void:

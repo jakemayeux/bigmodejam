@@ -15,8 +15,6 @@ func enter(previous_state: State_ID = 0) -> void:
 	
 	if temp != Vector2.ZERO:
 		physics_body.velocity += temp.normalized() * physics_body.stored_stomp_velocity
-	
-	physics_body.jump_buffer = 0
 	physics_body.stored_stomp_velocity = 0
 
 func physics_update(delta: float) -> void:
@@ -28,11 +26,13 @@ func physics_update(delta: float) -> void:
 	if input_vector.x != 0:
 		physics_body.velocity.x += input_vector.x * PlayerConstants.AIR_ACCEL * delta
 	
-	if physics_body.velocity.y > 0:
-		var horizontal_dominates = sqrt(abs(physics_body.velocity.y)) <= abs(physics_body.velocity.x)
-		if not horizontal_dominates:
+	var horizontal_dominates = sqrt(abs(physics_body.velocity.y)) <= abs(physics_body.velocity.x)
+	if not horizontal_dominates:
+		if(physics_body.velocity.y > 0):
 			change_state(State_ID.FALLING)
-			return
+		else:
+			change_state(State_ID.RISING)
+		return
 	
 	if physics_body.is_on_floor():
 		

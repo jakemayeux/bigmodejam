@@ -18,16 +18,17 @@ func physics_update(delta: float) -> void:
 		change_state(State_ID.QUADSTOMP)
 		return
 
-	if (physics_body.jump_buffer > 0 or physics_body.jump_tap <= 0) and physics_body.is_on_floor():
-		if(!Input.is_action_pressed("jump") or (physics_body.jump_tap > 0) and Input.is_action_just_released("jump")):
+	if  physics_body.is_on_floor():
+		print("is_action_jump_released: ", Input.is_action_just_released("jump"))
+		if(physics_body.check_jump_tap()):
 			change_state(State_ID.LEAPING)
-			physics_body.jump_tap = 0.05
+			physics_body.jump_tap = PlayerConstants.JUMP_TAP_TIME
+			return
 		elif (physics_body.jump_tap <= 0) and Input.is_action_pressed("jump"):
 			change_state(State_ID.SQUAT)
-			physics_body.jump_tap = 0.05
-		else:
-			physics_body.jump_tap -= delta
-		return
+			physics_body.jump_tap = PlayerConstants.JUMP_TAP_TIME
+			return
+		
 
 	if input_vector.x != 0 and physics_body.is_on_floor():
 		change_state(State_ID.RUNNING)
