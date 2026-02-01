@@ -258,75 +258,6 @@ _data = {
 &"Proto-Throw": SubResource("Animation_bwjto")
 }
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_dyjpq"]
-_data = PackedByteArray("AAADAAUAAAABAAAAkAAAAGAAAABYAQAAUklGRlABAABXRUJQVlA4TEMBAAAvj8AXECdAmG00f7vtfS6noZBtBOj82V6NozgCSZv1r7QSK3Q+/wHw/zhVLoBd22rd6GJTANJKARZOAXbkAuRH/0295IDnL7NWRP8nAL9+6TGeVU7YzrwrF2RHAFAODMuuOgCgjhkoRlgRpUwVQkBgCI8b0LERNBJp3GoCIy2vuc8rd2pGwxxeawXSIlF1yf3CnxVWQxq3OVepauyXSbd3NiNRaeCtRpJq+qxbv+XcWkGKQ7ugOqlGPWjhvFNNy6RThvtO0zop419cegzrdNPkwHgxQHV0j2k+AUC+/sTioL3JKO3K0QCPdNQdtNgYALsQQAjomh22FUCBWzkbcoZjAQinGZ4Drg/rV8p3xuYazqiGd1+WGsc93Ue2JDX3mad7xAMavZK5tDuf6cqwwrGE1JwV+A505n/I+SEkZHoGIOA3JwA=")
-size_override = Vector2(144, 96)
-
-[sub_resource type="Animation" id="Animation_5qho4"]
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteVFX:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_wbqhj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteVFX:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 26)]
-}
-
-[sub_resource type="Animation" id="Animation_32gdn"]
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteVFX:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 26)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteVFX:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qho4"]
-_data = {
-&"None": SubResource("Animation_5qho4"),
-&"RESET": SubResource("Animation_wbqhj"),
-&"SmallGroundedImpact": SubResource("Animation_32gdn")
-}
-
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=670318998]
 script = ExtResource("1_pqb02")
 
@@ -338,7 +269,7 @@ texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_wbqhj")
 hframes = 7
 vframes = 7
-frame = 26
+frame = 38
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": true,
@@ -367,42 +298,6 @@ metadata/_aseprite_wizard_source_file_hash_ = "23c2da2e3ac164aa3d1776de80934d1c"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=803208626]
 libraries/ = SubResource("AnimationLibrary_606se")
-
-[node name="VisualEffects" type="Node2D" parent="." unique_id=455992393]
-
-[node name="SpriteVFX" type="Sprite2D" parent="VisualEffects" unique_id=479276910]
-texture_filter = 1
-position = Vector2(0, 26)
-texture = SubResource("PortableCompressedTexture2D_dyjpq")
-hframes = 3
-vframes = 2
-frame = 1
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": true,
-"pending_changes": {}
-}
-metadata/_aseprite_wizard_config_ = {
-"convert_fps_field": 60.0,
-"convert_ms_field": 16.0,
-"convert_to_fps": false,
-"embed_tex": true,
-"i_mode": 0,
-"keep_anim_length": false,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": true,
-"player": "VisualEffects/AnimationPlayer",
-"scale": "1.0",
-"slice": "",
-"source": "res://ParticalEffects/VisualVFX.aseprite",
-"source_uid": 4938048260732315894
-}
-metadata/_aseprite_wizard_source_file_hash_ = "b5d1671cc4d38d7da51e347b807d7ee5"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="VisualEffects" unique_id=933023684]
-libraries/ = SubResource("AnimationLibrary_5qho4")
 
 [node name="StateMachine" type="Node" parent="." unique_id=282142584]
 script = ExtResource("2_ytgb6")
@@ -437,4 +332,3 @@ script = ExtResource("9_c5mkm")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
-[connection signal="animation_finished" from="VisualEffects/AnimationPlayer" to="." method="_on_vfx_animation_player_animation_finished"]

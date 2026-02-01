@@ -1,6 +1,6 @@
 extends State
 
-var tapTimer = 0.05
+
 
 func _ready() -> void:
 	state_id = State_ID.SLIDING
@@ -9,7 +9,7 @@ func enter(previous_state: State_ID = 0) -> void:
 	animation_player.play("Proto-Idle")
 	
 func exit() -> void:
-	tapTimer = 0.05
+	pass
 
 func physics_update(delta: float) -> void:
 	var input_vector = get_input_vector()
@@ -18,15 +18,15 @@ func physics_update(delta: float) -> void:
 		change_state(State_ID.QUADSTOMP)
 		return
 
-	if (physics_body.jump_buffer > 0 or tapTimer <= 0) and physics_body.is_on_floor():
-		if(!Input.is_action_pressed("jump") or (tapTimer > 0) and Input.is_action_just_released("jump")):
+	if (physics_body.jump_buffer > 0 or physics_body.jump_tap <= 0) and physics_body.is_on_floor():
+		if(!Input.is_action_pressed("jump") or (physics_body.jump_tap > 0) and Input.is_action_just_released("jump")):
 			change_state(State_ID.LEAPING)
-			tapTimer = 0.05
-		elif (tapTimer <= 0) and Input.is_action_pressed("jump"):
+			physics_body.jump_tap = 0.05
+		elif (physics_body.jump_tap <= 0) and Input.is_action_pressed("jump"):
 			change_state(State_ID.SQUAT)
-			tapTimer = 0.05
+			physics_body.jump_tap = 0.05
 		else:
-			tapTimer -= delta
+			physics_body.jump_tap -= delta
 		return
 
 	if input_vector.x != 0 and physics_body.is_on_floor():

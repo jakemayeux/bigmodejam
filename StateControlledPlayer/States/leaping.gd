@@ -35,6 +35,10 @@ func physics_update(delta: float) -> void:
 			return
 	
 	if physics_body.is_on_floor():
+		
+		physics_body.vfx_player.play("SmallGroundedImpact")
+		physics_body.detach_vfx_sprite()
+		
 		if input_vector.x == 0 and physics_body.velocity.x != 0:
 			change_state(State_ID.SLIDING)
 		elif physics_body.velocity.x != 0:

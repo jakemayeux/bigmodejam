@@ -16,6 +16,11 @@ func physics_update(delta: float) -> void:
 		physics_body.velocity.x += input_vector.x * PlayerConstants.AIR_ACCEL * delta
 	
 	if physics_body.is_on_floor():
+		
+		
+		physics_body.vfx_player.play("SmallGroundedImpact")
+		physics_body.detach_vfx_sprite()
+
 		if physics_body.velocity.length() == 0:
 			change_state(State_ID.IDLE)
 		elif input_vector.x == 0 and physics_body.velocity.x != 0:

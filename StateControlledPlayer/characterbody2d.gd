@@ -5,9 +5,14 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var vfx_parent: Node2D = $VisualEffects
+@onready var vfx_player: AnimationPlayer = vfx_parent.get_node("AnimationPlayer")
+
 
 var jump_buffer_time := 0.075
 var jump_buffer := 0.0
+var jump_tap_time := 0.05
+var jump_tap = 0.0
 
 var stored_stomp_velocity := 0.0
 var stored_crouch_velocity := 0.0
@@ -23,10 +28,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _update_jump_buffer(delta: float) -> void:
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		jump_buffer = jump_buffer_time
+		jump_tap = jump_buffer_time
 	elif jump_buffer > 0:
 		jump_buffer -= delta
+		jump_tap -= delta
+		
+	
+	
 
 func _apply_gravity_and_drag(delta: float) -> void:
 	if not is_on_floor():
@@ -42,3 +52,13 @@ func get_current_state() -> State.State_ID:
 
 func change_state(new_state: State.State_ID) -> void:
 	state_machine.change_state(new_state)
+
+func detach_vfx_sprite() -> void:
+	var gp : Vector2 = vfx_parent.global_position
+	vfx_parent.top_level = true
+	vfx_parent.global_position = gp
+	
+func _on_vfx_animation_player_animation_finished(anim_name: StringName) -> void:
+	vfx_player.play("None")
+	vfx_parent.top_level = false
+	vfx_parent.position = Vector2(0,0)
