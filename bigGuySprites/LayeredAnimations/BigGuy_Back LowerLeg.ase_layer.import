@@ -3,14 +3,11 @@
 importer="aseprite_wizard.plugin.spriteframes-split-layer"
 type="SpriteFrames"
 uid="uid://bjs4svgmdpvtu"
-path="res://.godot/imported/BigGuy_Back LowerLeg.ase_layer-126e241e281adced1a567b207196b5d6.res"
+valid=false
 
 [deps]
 
-files=["res://.godot/imported/BigGuy_Back LowerLeg.ase_layer-126e241e281adced1a567b207196b5d6.Back LowerLeg.texture.res"]
-
 source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Back LowerLeg.ase_layer"
-dest_files=["res://.godot/imported/BigGuy_Back LowerLeg.ase_layer-126e241e281adced1a567b207196b5d6.res", "res://.godot/imported/BigGuy_Back LowerLeg.ase_layer-126e241e281adced1a567b207196b5d6.Back LowerLeg.texture.res"]
 
 [params]
 

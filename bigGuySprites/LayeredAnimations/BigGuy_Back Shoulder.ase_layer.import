@@ -3,14 +3,11 @@
 importer="aseprite_wizard.plugin.spriteframes-split-layer"
 type="SpriteFrames"
 uid="uid://hc3urobhvea0"
-path="res://.godot/imported/BigGuy_Back Shoulder.ase_layer-ac28a41e91cd6194753cc9bb68873b35.res"
+valid=false
 
 [deps]
 
-files=["res://.godot/imported/BigGuy_Back Shoulder.ase_layer-ac28a41e91cd6194753cc9bb68873b35.Back Shoulder.texture.res"]
-
 source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Back Shoulder.ase_layer"
-dest_files=["res://.godot/imported/BigGuy_Back Shoulder.ase_layer-ac28a41e91cd6194753cc9bb68873b35.res", "res://.godot/imported/BigGuy_Back Shoulder.ase_layer-ac28a41e91cd6194753cc9bb68873b35.Back Shoulder.texture.res"]
 
 [params]
 

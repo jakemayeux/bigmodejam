@@ -3,14 +3,11 @@
 importer="aseprite_wizard.plugin.spriteframes-split-layer"
 type="SpriteFrames"
 uid="uid://b6fsmatmxvv01"
-path="res://.godot/imported/BigGuy_Back UpperLeg.ase_layer-37b9f918a6f9a0b303cff1c47f25df8e.res"
+valid=false
 
 [deps]
 
-files=["res://.godot/imported/BigGuy_Back UpperLeg.ase_layer-37b9f918a6f9a0b303cff1c47f25df8e.Back UpperLeg.texture.res"]
-
 source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Back UpperLeg.ase_layer"
-dest_files=["res://.godot/imported/BigGuy_Back UpperLeg.ase_layer-37b9f918a6f9a0b303cff1c47f25df8e.res", "res://.godot/imported/BigGuy_Back UpperLeg.ase_layer-37b9f918a6f9a0b303cff1c47f25df8e.Back UpperLeg.texture.res"]
 
 [params]
 

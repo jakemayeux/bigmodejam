@@ -20,7 +20,7 @@ func _ready() -> void:
 				child.state_finished.connect(state_finished)
 				states[child.state_id] = child
 	if states.size() != 0:
-		change_state(State.State_ID.IDLE)		
+		change_state(State.State_ID.IDLE)
 			
 			
 func _process(delta: float) -> void:

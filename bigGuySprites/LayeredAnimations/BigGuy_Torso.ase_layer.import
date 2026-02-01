@@ -3,14 +3,11 @@
 importer="aseprite_wizard.plugin.spriteframes-split-layer"
 type="SpriteFrames"
 uid="uid://ckbivb1cdlpcn"
-path="res://.godot/imported/BigGuy_Torso.ase_layer-81ff4dedece1cfedef3e38ff1d000569.res"
+valid=false
 
 [deps]
 
-files=["res://.godot/imported/BigGuy_Torso.ase_layer-81ff4dedece1cfedef3e38ff1d000569.Torso.texture.res"]
-
 source_file="res://bigGuySprites/LayeredAnimations/BigGuy_Torso.ase_layer"
-dest_files=["res://.godot/imported/BigGuy_Torso.ase_layer-81ff4dedece1cfedef3e38ff1d000569.res", "res://.godot/imported/BigGuy_Torso.ase_layer-81ff4dedece1cfedef3e38ff1d000569.Torso.texture.res"]
 
 [params]
 
