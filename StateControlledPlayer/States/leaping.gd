@@ -26,6 +26,9 @@ func physics_update(delta: float) -> void:
 	if input_vector.x != 0:
 		physics_body.velocity.x += input_vector.x * PlayerConstants.AIR_ACCEL * delta
 	
+	if handle_dive():
+		return
+	
 	var horizontal_dominates = sqrt(abs(physics_body.velocity.y)) <= abs(physics_body.velocity.x)
 	if not horizontal_dominates:
 		if(physics_body.velocity.y > 0):

@@ -7,7 +7,8 @@ func _ready() -> void:
 	
 func enter(previous_state: State_ID = 0) -> void:
 	animation_player.play("Proto-Dive")
-	physics_body.velocity.x += PlayerConstants.DIVE_VELOCITY
+	physics_body.velocity.x += PlayerConstants.DIVE_VELOCITY *  physics_body.get_node("Sprite2D").scale.x * -1
+	can_dive = false
 
 func physics_update(delta: float) -> void:
 	var input_vector = get_input_vector()
@@ -23,12 +24,8 @@ func physics_update(delta: float) -> void:
 		physics_body.vfx_player.play("SmallGroundedImpact")
 		physics_body.detach_vfx_sprite()
 		
+		change_state(State_ID.ROLLING)
 
-		if physics_body.velocity.length() == 0:
-			change_state(State_ID.IDLE)
-		elif physics_body.velocity.x != 0:
-			change_state(State_ID.ROLLING)
-		return
 		
 	var horizontal_dominates = sqrt(abs(physics_body.velocity.y)) <= abs(physics_body.velocity.x)
 	if not horizontal_dominates:

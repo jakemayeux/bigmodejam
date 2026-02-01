@@ -152,3 +152,10 @@ func handle_wind_up()-> bool:
 		change_state(State_ID.CHARGEWINDUP)
 		return true
 	return false
+
+func handle_dive()->bool:
+	if physics_body.movement_action_buffer > 0:
+		change_state(State_ID.DIVING)
+		return true
+	return false
+		

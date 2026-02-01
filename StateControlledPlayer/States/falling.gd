@@ -15,8 +15,10 @@ func physics_update(delta: float) -> void:
 	if input_vector.x != 0:
 		physics_body.velocity.x += input_vector.x * PlayerConstants.AIR_ACCEL * delta
 	
+	if handle_dive():
+		return
+	
 	if physics_body.is_on_floor():
-		
 		
 		physics_body.vfx_player.play("SmallGroundedImpact")
 		physics_body.detach_vfx_sprite()
