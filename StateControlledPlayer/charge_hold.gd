@@ -27,6 +27,20 @@ func physics_update(delta: float) -> void:
 	
 	physics_body.vfx_parent.scale.x = physics_body.get_node("Sprite2D").scale.x
 	
+	choose_shine_vfx(delta)
+	
+	print("stored vel:", velocity_charge_total)
+	if(Input.is_action_just_released("MovmentAction")):
+		physics_body.velocity.x = velocity_charge_total*physics_body.get_node("Sprite2D").scale.x*-1
+		if(velocity_charge_total > 600):
+			change_state(State_ID.CHARGEFORWARD)
+		else:
+			change_state(State_ID.SLIDING)
+
+func can_enter_from(other_state : State_ID) -> bool:
+	return false
+
+func choose_shine_vfx(delta : float)->void:
 	if(velocity_charge_timer >= PlayerConstants.CHARGE_WIND_HOLD_TIME_3 +  PlayerConstants.CHARGE_WIND_HOLD_TIME_2 + PlayerConstants.CHARGE_WIND_HOLD_TIME_1):
 		physics_body.vfx_player.play("SmallShine-3")
 	elif(velocity_charge_timer >= PlayerConstants.CHARGE_WIND_HOLD_TIME_2 + PlayerConstants.CHARGE_WIND_HOLD_TIME_1):
@@ -35,10 +49,3 @@ func physics_update(delta: float) -> void:
 		physics_body.vfx_player.play("SmallShine-1")
 	velocity_charge_timer += delta
 	
-	print("stored vel:", velocity_charge_total)
-	if(Input.is_action_just_released("MovmentAction")):
-		physics_body.velocity.x = velocity_charge_total*physics_body.get_node("Sprite2D").scale.x*-1
-		change_state(State_ID.SLIDING)
-
-func can_enter_from(other_state : State_ID) -> bool:
-	return false

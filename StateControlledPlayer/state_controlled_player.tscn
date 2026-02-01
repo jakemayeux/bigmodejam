@@ -11,7 +11,10 @@
 [ext_resource type="Script" uid="uid://uwnsibt4qkby" path="res://StateControlledPlayer/States/squat.gd" id="9_c5mkm"]
 [ext_resource type="Script" uid="uid://drxdsli21nty4" path="res://StateControlledPlayer/States/quad_stomp.gd" id="9_sl0af"]
 [ext_resource type="Script" uid="uid://dxiff3fihmbpr" path="res://StateControlledPlayer/charge_wind_up.gd" id="11_dyjpq"]
+[ext_resource type="Script" uid="uid://c80s30r8jm26g" path="res://StateControlledPlayer/diving.gd" id="11_ols3l"]
 [ext_resource type="Script" uid="uid://d0vof1vcexl62" path="res://StateControlledPlayer/charge_hold.gd" id="12_32gdn"]
+[ext_resource type="Script" uid="uid://b6cgn3jg0yssk" path="res://StateControlledPlayer/rolling.gd" id="12_favay"]
+[ext_resource type="Script" uid="uid://cfy6n3h00ntca" path="res://StateControlledPlayer/charge_forward.gd" id="13_5qho4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
 height = 64.0
@@ -84,7 +87,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -464,7 +466,7 @@ texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_32gdn")
 hframes = 8
 vframes = 7
-frame = 49
+frame = 31
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -559,8 +561,10 @@ script = ExtResource("9_sl0af")
 script = ExtResource("9_c5mkm")
 
 [node name="Diving" type="Node" parent="StateMachine" unique_id=386503152]
+script = ExtResource("11_ols3l")
 
 [node name="Rolling" type="Node" parent="StateMachine" unique_id=207061477]
+script = ExtResource("12_favay")
 
 [node name="ChargeWindUp" type="Node" parent="StateMachine" unique_id=1635985853]
 script = ExtResource("11_dyjpq")
@@ -568,6 +572,9 @@ script = ExtResource("11_dyjpq")
 [node name="ChargeHold" type="Node" parent="StateMachine" unique_id=1046696777]
 script = ExtResource("12_32gdn")
 velocity_charge_curve = SubResource("Curve_32gdn")
+
+[node name="ChargeForward" type="Node" parent="StateMachine" unique_id=1159495225]
+script = ExtResource("13_5qho4")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]

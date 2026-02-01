@@ -26,6 +26,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_update_jump_buffer(delta)
+	_update_accel()
 	_update_movement_action_buffer(delta)
 	
 	_apply_gravity_and_drag(delta)
@@ -72,6 +73,9 @@ func check_movement_action_tap()-> bool:
 func check_movement_action_hold()->bool:
 	return (movement_action_tap <= 0) and Input.is_action_pressed("MovmentAction")
 
+func _update_accel()->void:
+	PlayerConstants.GROUND_ACCEL = PlayerConstants.GROUND_DRAG * pow(PlayerConstants.MAX_SPEED, PlayerConstants.GROUND_DRAG_DEGREE)
+	PlayerConstants.AIR_ACCEL = PlayerConstants.AIR_DRAG * pow(PlayerConstants.MAX_AIR_SPEED, PlayerConstants.AIR_DRAG_DEGREE)
 
 func _apply_gravity_and_drag(delta: float) -> void:
 	if not is_on_floor():
@@ -97,3 +101,4 @@ func _on_vfx_animation_player_animation_finished(anim_name: StringName) -> void:
 	vfx_player.play("None")
 	vfx_parent.top_level = false
 	vfx_parent.position = Vector2(0,0)
+	

@@ -54,3 +54,4 @@ func get_current_state() -> State:
 	
 func state_finished(next_state : State.State_ID) -> void:
 	change_state(next_state)
+	

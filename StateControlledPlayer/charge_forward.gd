@@ -1,12 +1,13 @@
 extends State
 
 func _ready() -> void:
-	state_id = State_ID.RUNNING
+	state_id = State_ID.CHARGEFORWARD
 
 func enter(previous_state: State_ID = 0) -> void:
 	animation_player.play("Proto-Run")
 	animation_player.seek(0.2)
-	PlayerConstants.GROUND_DRAG = PlayerConstants.GROUND_DRAG_RUNNING_CONST
+	PlayerConstants.GROUND_DRAG = PlayerConstants.GROUND_DRAG_CHARGE_FORWARD_CONST
+	PlayerConstants.GROUND_DRAG_DEGREE = PlayerConstants.GROUND_DRAG_CHARGE_FORWARD_DEGREE_CONST
 func exit() -> void:
 	PlayerConstants.GROUND_DRAG_DEGREE = PlayerConstants.GROUND_DRAG_DEGREE_CONST
 	PlayerConstants.GROUND_DRAG = PlayerConstants.GROUND_DRAG_CONST
@@ -20,9 +21,7 @@ func physics_update(delta: float) -> void:
 	if input_vector.x != 0:
 		physics_body.velocity.x += input_vector.x * PlayerConstants.GROUND_ACCEL * delta
 	
-	#if Input.is_action_just_pressed("s"):
-	#	change_state(State_ID.QUADSTOMP)
-	#	return
+	print("charging_velocity: ", physics_body.velocity)
 	
 	if handle_leap_and_squat():
 		return

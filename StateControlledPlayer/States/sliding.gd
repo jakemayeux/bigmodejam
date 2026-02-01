@@ -7,19 +7,20 @@ func _ready() -> void:
 
 func enter(previous_state: State_ID = 0) -> void:
 	animation_player.play("Proto-Idle")
-	
+	PlayerConstants.GROUND_DRAG_DEGREE = PlayerConstants.GROUND_DRAG_SLIDING_DEGREE_CONST
+	PlayerConstants.GROUND_DRAG = PlayerConstants.GROUND_DRAG_SLIDING_CONST
 func exit() -> void:
-	pass
+	PlayerConstants.GROUND_DRAG_DEGREE = PlayerConstants.GROUND_DRAG_DEGREE_CONST
+	PlayerConstants.GROUND_DRAG = PlayerConstants.GROUND_DRAG_CONST
 
 func physics_update(delta: float) -> void:
 	var input_vector = get_input_vector()
 
-	if Input.is_action_just_pressed("s"):
-		change_state(State_ID.QUADSTOMP)
-		return
+	#if Input.is_action_just_pressed("s"):
+	#	change_state(State_ID.QUADSTOMP)
+	#	return
 
 	if  physics_body.is_on_floor():
-		print("is_action_jump_released: ", Input.is_action_just_released("jump"))
 		if(physics_body.check_jump_tap()):
 			change_state(State_ID.LEAPING)
 			physics_body.jump_tap = PlayerConstants.JUMP_TAP_TIME
@@ -29,6 +30,9 @@ func physics_update(delta: float) -> void:
 			physics_body.jump_tap = PlayerConstants.JUMP_TAP_TIME
 			return
 		
+		
+	if handle_wind_up():
+		return
 
 	if input_vector.x != 0 and physics_body.is_on_floor():
 		change_state(State_ID.RUNNING)

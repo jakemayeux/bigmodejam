@@ -18,6 +18,8 @@ enum State_ID {
 				0b0100000000000,
 	CHARGEWINDHOLD = \
 				0b1000000000000,
+	CHARGEFORWARD = \
+				0b10000000000000,
 	ALL = 		0b1111111111111
 }
 
@@ -36,6 +38,7 @@ const interupt_table = {
 	State_ID.CLIMBING : State_ID.NONE,
 	State_ID.CHARGEWINDUP : State_ID.NONE,
 	State_ID.CHARGEWINDHOLD : State_ID.NONE,
+	State_ID.CHARGEFORWARD : State_ID.NONE,
 }
 #not currently in use
 enum State_Trans{
@@ -51,7 +54,8 @@ enum State_Trans{
 	SQUAT_TRANS = 		State_ID.RISING,
 	CLIMBING_TRANS = 0,
 	CHARGEWINDUP_TRANS = 0,
-	CHARGEWINDHOLD_TRANS = 0
+	CHARGEWINDHOLD_TRANS = 0,
+	CHARGEFORWARD_TRANS = 0
 }
 const transition_table = {
 		State_ID.IDLE : State_Trans.IDLE_TRANS,
@@ -66,7 +70,8 @@ const transition_table = {
 		State_ID.SQUAT :   State_Trans.SQUAT_TRANS,
 		State_ID.CLIMBING :   State_Trans.CLIMBING_TRANS,
 		State_ID.CHARGEWINDUP :   State_Trans.CHARGEWINDUP_TRANS,
-		State_ID.CHARGEWINDHOLD :   State_Trans.CHARGEWINDHOLD_TRANS
+		State_ID.CHARGEWINDHOLD :   State_Trans.CHARGEWINDHOLD_TRANS,
+		State_ID.CHARGEFORWARD :   State_Trans.CHARGEFORWARD_TRANS
 }
 
 signal state_finished(next_state : State_ID)
@@ -128,3 +133,22 @@ func is_movement_action_just_pressed() -> bool:
 
 func change_state(new_state: State_ID) -> void:
 	state_finished.emit(new_state)
+
+
+#--------------------Common State Calls----------------------
+func handle_leap_and_squat()-> bool:
+	if(physics_body.check_jump_tap()):
+		physics_body.change_state(State_ID.LEAPING)
+		physics_body.jump_tap = PlayerConstants.JUMP_TAP_TIME
+		return true
+	elif (physics_body.jump_tap <= 0) and Input.is_action_pressed("jump"):
+		change_state(State_ID.SQUAT)
+		physics_body.jump_tap = PlayerConstants.JUMP_TAP_TIME
+		return true
+	return false
+
+func handle_wind_up()-> bool:
+	if physics_body.check_movement_action_buffer():
+		change_state(State_ID.CHARGEWINDUP)
+		return true
+	return false
