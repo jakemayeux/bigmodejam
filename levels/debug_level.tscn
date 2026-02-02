@@ -1,10 +1,11 @@
 [gd_scene format=4 uid="uid://d3bt6dk52aaoi"]
 
 [ext_resource type="Script" uid="uid://bwok0biqum1yd" path="res://scripts/player.gd" id="1_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://dilih8cavbmwt" path="res://Music/Snare intro.wav" id="1_f3rnd"]
 [ext_resource type="Texture2D" uid="uid://bw04fc70wcq8r" path="res://resources/BigGuy.png" id="1_ig7tw"]
+[ext_resource type="AudioStream" uid="uid://x2246lih5er0" path="res://Music/Funk Loop.wav" id="2_jeowh"]
 [ext_resource type="Texture2D" uid="uid://bj50un36t2xxu" path="res://resources/FREE - Pixel Art Sidescroller Asset Pack 32x32 Modern City/GandalfHardcore city tiles 32x32.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://be12mduqqmmo0" path="res://StateControlledPlayer/state_controlled_player.tscn" id="4_kyyvy"]
-[ext_resource type="AudioStream" uid="uid://wkjgmpifnvvb" path="res://Music/happy-tropical-loop-sweet-fun-271836.mp3" id="5_g5ckd"]
 [ext_resource type="PackedScene" uid="uid://b7lqxo7j8lpn3" path="res://Enemies/Jackedbara.tscn" id="6_kwkfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
@@ -401,7 +402,15 @@ terrain_set_0/terrain_0/color = Color(0.71825093, 0, 0.26604915, 1)
 sources/0 = SubResource("TileSetAtlasSource_1bvp3")
 
 [node name="Node2D" type="Node2D" unique_id=461186655]
-position = Vector2(0, 3)
+
+[node name="ASP Snare Intro" type="AudioStreamPlayer" parent="." unique_id=860586831]
+stream = ExtResource("1_f3rnd")
+autoplay = true
+bus = &"Music"
+
+[node name="ASP Main Funk Loop" type="AudioStreamPlayer" parent="." unique_id=297136994]
+stream = ExtResource("2_jeowh")
+bus = &"Music"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1674371340]
 visible = false
@@ -429,12 +438,7 @@ position = Vector2(578, 341)
 position = Vector2(0, -35)
 zoom = Vector2(2, 2)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D2/Camera2D" unique_id=1819085523]
-position = Vector2(-578, -306)
-stream = ExtResource("5_g5ckd")
-autoplay = true
-max_distance = 1000.0
-bus = &"Music"
-
 [node name="Jackedbara" parent="." unique_id=1902910876 instance=ExtResource("6_kwkfn")]
 position = Vector2(713, 146)
+
+[connection signal="finished" from="ASP Snare Intro" to="ASP Main Funk Loop" method="play"]

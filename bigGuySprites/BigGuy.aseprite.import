@@ -3,12 +3,11 @@
 importer="aseprite_wizard.plugin.spriteframes"
 type="SpriteFrames"
 uid="uid://xyif6jy147ne"
-path="res://.godot/imported/BigGuy.aseprite-e20a5fcdfdd5ef95dc0fb308dd0d22dd.res"
+valid=false
 
 [deps]
 
 source_file="res://bigGuySprites/BigGuy.aseprite"
-dest_files=["res://.godot/imported/BigGuy.aseprite-e20a5fcdfdd5ef95dc0fb308dd0d22dd.res"]
 
 [params]
 

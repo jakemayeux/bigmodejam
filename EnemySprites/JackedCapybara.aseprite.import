@@ -3,12 +3,11 @@
 importer="aseprite_wizard.plugin.spriteframes"
 type="SpriteFrames"
 uid="uid://c5a77r665cpqh"
-path="res://.godot/imported/JackedCapybara.aseprite-9d7627cd2a79273f036c87d8b5435204.res"
+valid=false
 
 [deps]
 
 source_file="res://EnemySprites/JackedCapybara.aseprite"
-dest_files=["res://.godot/imported/JackedCapybara.aseprite-9d7627cd2a79273f036c87d8b5435204.res"]
 
 [params]
 

@@ -501,7 +501,7 @@ texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_favay")
 hframes = 8
 vframes = 7
-frame = 7
+frame = 5
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
