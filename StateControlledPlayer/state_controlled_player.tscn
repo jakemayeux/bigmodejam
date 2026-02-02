@@ -5,16 +5,41 @@
 [ext_resource type="Script" uid="uid://c2w2gkv6o3tis" path="res://StateControlledPlayer/States/runnning.gd" id="3_3odsw"]
 [ext_resource type="Script" uid="uid://3hese5yqkjke" path="res://StateControlledPlayer/States/idle.gd" id="3_ytgb6"]
 [ext_resource type="Script" uid="uid://duurprl6h7vs" path="res://StateControlledPlayer/States/falling.gd" id="4_3pafw"]
+[ext_resource type="AudioStream" uid="uid://cgv0qwjctut57" path="res://SFX/Footsteps Concrete-002.wav" id="4_wagst"]
+[ext_resource type="AudioStream" uid="uid://cwx6shyagapth" path="res://SFX/Footsteps Concrete-003.wav" id="5_vqnfc"]
+[ext_resource type="AudioStream" uid="uid://lykdga5u6ifn" path="res://SFX/Footsteps Concrete-004.wav" id="6_3ye8d"]
 [ext_resource type="Script" uid="uid://c4fydwu7j4tq8" path="res://StateControlledPlayer/States/leaping.gd" id="6_woueq"]
+[ext_resource type="AudioStream" uid="uid://m7o0ugss1i16" path="res://SFX/Footsteps Concrete-005.wav" id="7_8t27n"]
 [ext_resource type="Script" uid="uid://c4d8m0cjhrdl0" path="res://StateControlledPlayer/States/sliding.gd" id="7_bjfdx"]
 [ext_resource type="Script" uid="uid://c1ddp5dt4hqnt" path="res://StateControlledPlayer/States/rising.gd" id="7_hfcs4"]
+[ext_resource type="AudioStream" uid="uid://cyruxdq0sim0i" path="res://SFX/Footsteps Concrete-006.wav" id="8_vc44m"]
 [ext_resource type="Script" uid="uid://uwnsibt4qkby" path="res://StateControlledPlayer/States/squat.gd" id="9_c5mkm"]
 [ext_resource type="Script" uid="uid://drxdsli21nty4" path="res://StateControlledPlayer/States/quad_stomp.gd" id="9_sl0af"]
+[ext_resource type="AudioStream" uid="uid://b8b0hbgqkp26m" path="res://SFX/Footsteps Concrete-007.wav" id="9_venrk"]
+[ext_resource type="AudioStream" uid="uid://dqcr62yv3efq1" path="res://SFX/Footsteps Concrete-008.wav" id="10_ilo5d"]
 [ext_resource type="Script" uid="uid://dxiff3fihmbpr" path="res://StateControlledPlayer/charge_wind_up.gd" id="11_dyjpq"]
+[ext_resource type="AudioStream" uid="uid://bldixw7nc5riv" path="res://SFX/Footsteps Concrete-009.wav" id="11_ekbrv"]
 [ext_resource type="Script" uid="uid://c80s30r8jm26g" path="res://StateControlledPlayer/diving.gd" id="11_ols3l"]
 [ext_resource type="Script" uid="uid://d0vof1vcexl62" path="res://StateControlledPlayer/charge_hold.gd" id="12_32gdn"]
 [ext_resource type="Script" uid="uid://b6cgn3jg0yssk" path="res://StateControlledPlayer/rolling.gd" id="12_favay"]
+[ext_resource type="AudioStream" uid="uid://dga1u5gfwelg7" path="res://SFX/Footsteps Concrete-010.wav" id="12_kgkir"]
 [ext_resource type="Script" uid="uid://cfy6n3h00ntca" path="res://StateControlledPlayer/charge_forward.gd" id="13_5qho4"]
+[ext_resource type="AudioStream" uid="uid://blpddg1xfaf0h" path="res://SFX/Footsteps Concrete-011.wav" id="13_elwcq"]
+[ext_resource type="AudioStream" uid="uid://c2v62wvcx566t" path="res://SFX/Concrete Jump.wav" id="16_ici4b"]
+[ext_resource type="AudioStream" uid="uid://bwkprvlyo5xls" path="res://SFX/Land.wav" id="17_xipxe"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jhcd2"]
+streams_count = 10
+stream_0/stream = ExtResource("4_wagst")
+stream_1/stream = ExtResource("5_vqnfc")
+stream_2/stream = ExtResource("6_3ye8d")
+stream_3/stream = ExtResource("7_8t27n")
+stream_4/stream = ExtResource("8_vc44m")
+stream_5/stream = ExtResource("9_venrk")
+stream_6/stream = ExtResource("10_ilo5d")
+stream_7/stream = ExtResource("11_ekbrv")
+stream_8/stream = ExtResource("12_kgkir")
+stream_9/stream = ExtResource("13_elwcq")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
 height = 64.0
@@ -24,7 +49,7 @@ _data = PackedByteArray("AAADAAUAAAABAAAAAAMAAMABAAD+KAAAUklGRvYoAABXRUJQVlA4TOk
 size_override = Vector2(768, 448)
 
 [sub_resource type="Animation" id="Animation_onrkg"]
-length = 0.1
+length = 16.533333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -457,6 +482,17 @@ point_count = 5
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=670318998]
 script = ExtResource("1_pqb02")
 
+[node name="AudioStreamPlayer2D_Jump" type="AudioStreamPlayer2D" parent="." unique_id=1629714669]
+stream = ExtResource("16_ici4b")
+
+[node name="AudioStreamPlayer2D_Land" type="AudioStreamPlayer2D" parent="." unique_id=827369569]
+stream = ExtResource("17_xipxe")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2D_Running" type="AudioStreamPlayer2D" parent="." unique_id=670775570]
+stream = SubResource("AudioStreamRandomizer_jhcd2")
+bus = &"SFX"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973163453]
 shape = SubResource("CapsuleShape2D_4flbx")
 
@@ -465,7 +501,7 @@ texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_favay")
 hframes = 8
 vframes = 7
-frame = 22
+frame = 7
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
