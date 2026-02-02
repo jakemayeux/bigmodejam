@@ -38,9 +38,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func change_state(new_current_state : State.State_ID) -> void:
 	
-	if(current_state & new_current_state):
-		if(not get_current_state().can_interupt_self()):
-			return
 	get_current_state().exit()
 	
 	states[new_current_state].enter(current_state)

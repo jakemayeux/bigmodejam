@@ -27,6 +27,9 @@ func physics_update(delta: float) -> void:
 	if input_vector.x != 0:
 		physics_body.velocity.x += input_vector.x * PlayerConstants.AIR_ACCEL * delta
 	
+	if handle_dive():
+		return
+	
 	# Transition to falling when moving downward
 	if physics_body.velocity.y > 0:
 		change_state(State_ID.FALLING)

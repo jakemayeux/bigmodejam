@@ -1,6 +1,7 @@
 extends Node
 class_name State
 
+#Player state ID uses bit mask, everly complex and isnt used
 enum State_ID {
 	NONE = 0,
 	IDLE = 		0b0000000000001,
@@ -21,6 +22,13 @@ enum State_ID {
 	CHARGEFORWARD = \
 				0b10000000000000,
 	ALL = 		0b1111111111111
+}
+
+#Enemy_state will not used bitmask becasue i now have the foresight to see that they were usless
+enum Enemy_State_ID {
+	NONE = 0,
+	IDLE = 1,
+	DEATH = 2
 }
 
 #currently only being used to check if it can interrupt to itself
@@ -76,11 +84,13 @@ const transition_table = {
 
 signal state_finished(next_state : State_ID)
 
-var state_id : State_ID = State_ID.NONE
+var state_id : int = State_ID.NONE
 
 var physics_body : CharacterBody2D
 var animation_player: AnimationPlayer
 
+
+#never used, will only work with player states as enemy states dont use bitmask
 func can_interupt_self() -> bool:
 	return interupt_table.get(state_id, 0) & state_id
 func can_interupt_other(other_state : State_ID) -> bool:
@@ -131,7 +141,7 @@ func is_jump_just_released() -> bool:
 func is_movement_action_just_pressed() -> bool:
 	return Input.is_action_just_pressed("MovmentAction")
 
-func change_state(new_state: State_ID) -> void:
+func change_state(new_state: int) -> void:
 	state_finished.emit(new_state)
 
 

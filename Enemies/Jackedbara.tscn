@@ -1,0 +1,108 @@
+[gd_scene format=4 uid="uid://b7lqxo7j8lpn3"]
+
+[ext_resource type="Script" uid="uid://cbl4mv56287t1" path="res://StateControlledPlayer/state_machine.gd" id="1_iqbau"]
+[ext_resource type="Script" uid="uid://brboe5ghnpfgj" path="res://Enemies/jackedbara.gd" id="1_qrs3a"]
+[ext_resource type="Script" uid="uid://dx03spttlnig4" path="res://Enemies/enemy_idle.gd" id="2_i8re5"]
+[ext_resource type="Script" uid="uid://cvtq74vsycwyc" path="res://Enemies/enemy_death.gd" id="4_lw5s8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1swhf"]
+size = Vector2(11, 35)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_1swhf"]
+_data = PackedByteArray("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")
+size_override = Vector2(288, 288)
+
+[sub_resource type="Animation" id="Animation_iqbau"]
+length = 0.51
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_i8re5"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrs3a"]
+_data = {
+&"Death": SubResource("Animation_iqbau"),
+&"Idle": SubResource("Animation_i8re5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrs3a"]
+size = Vector2(18, 32)
+
+[node name="Jackedbara" type="CharacterBody2D" unique_id=1902910876]
+script = ExtResource("1_qrs3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=355272760]
+position = Vector2(3.5, 14.5)
+shape = SubResource("RectangleShape2D_1swhf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000587021]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_1swhf")
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://EnemySprites/JackedCapybara.aseprite",
+"source_uid": 6880507707935231219
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0179107b3e28857743246fa21ea524b4"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=302807037]
+libraries/ = SubResource("AnimationLibrary_qrs3a")
+
+[node name="StateMachine" type="Node" parent="." unique_id=265903128]
+script = ExtResource("1_iqbau")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=205849904]
+script = ExtResource("2_i8re5")
+
+[node name="Death" type="Node" parent="StateMachine" unique_id=1928239945]
+script = ExtResource("4_lw5s8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=539126631]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1058681018]
+position = Vector2(3, 11)
+shape = SubResource("RectangleShape2D_qrs3a")
+
+[connection signal="body_entered" from="Area2D" to="StateMachine/Idle" method="_on_area_2d_body_entered"]
