@@ -3,11 +3,12 @@
 importer="aseprite_wizard.plugin.spriteframes"
 type="SpriteFrames"
 uid="uid://ccma60ahglyhq"
-valid=false
+path="res://.godot/imported/VisualVFX.aseprite-38c8e860cd8f62ad57ddecbd0484ea84.res"
 
 [deps]
 
 source_file="res://ParticalEffects/VisualVFX.aseprite"
+dest_files=["res://.godot/imported/VisualVFX.aseprite-38c8e860cd8f62ad57ddecbd0484ea84.res"]
 
 [params]
 
