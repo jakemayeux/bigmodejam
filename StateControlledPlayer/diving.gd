@@ -8,13 +8,14 @@ func _ready() -> void:
 func enter(previous_state: State_ID = 0) -> void:
 	animation_player.play("Proto-Dive")
 	physics_body.velocity.x += PlayerConstants.DIVE_VELOCITY *  physics_body.get_node("Sprite2D").scale.x * -1
+	physics_body.velocity.y -= PlayerConstants.DIVE_VELOCITY/2
 	can_dive = false
 
 func physics_update(delta: float) -> void:
 	var input_vector = get_input_vector()
 	
-	if input_vector.x != 0:
-		physics_body.get_node("Sprite2D").scale.x = -1 if input_vector.x > 0 else 1
+	if physics_body.velocity.x != 0:
+		physics_body.get_node("Sprite2D").scale.x = -1 if physics_body.velocity.x > 0 else 1
 	
 	if input_vector.x != 0:
 		physics_body.velocity.x += input_vector.x * PlayerConstants.AIR_ACCEL * delta
